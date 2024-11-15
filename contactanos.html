@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - Venta de Audífonos</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        // Función para agregar los datos a la tabla
+        function agregarDatos(event) {
+            event.preventDefault(); // Evita el envío del formulario
+
+            // Obtener los valores del formulario
+            const nombre = document.getElementById("nombre").value;
+            const correo = document.getElementById("correo").value;
+            const mensaje = document.getElementById("mensaje").value;
+
+            // Crear una nueva fila y celdas
+            const tabla = document.getElementById("tabla-datos").querySelector("tbody");
+            const nuevaFila = tabla.insertRow();
+            const celdaNombre = nuevaFila.insertCell(0);
+            const celdaCorreo = nuevaFila.insertCell(1);
+            const celdaMensaje = nuevaFila.insertCell(2);
+
+            // Insertar los datos en las celdas
+            celdaNombre.textContent = nombre;
+            celdaCorreo.textContent = correo;
+            celdaMensaje.textContent = mensaje;
+
+            // Limpiar el formulario
+            document.getElementById("form-contacto").reset();
+        }
+    </script>
+</head>
+<body>
+    <!-- Encabezado y menú -->
+    <header>
+        <nav>
+            <div class="audi">
+                <h1><IMG src="AUDI.png"><a href="index.html">AURIC LAB</a></h1>
+            </div>
+            <ul class="menu">
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="productos.html">Productos</a></li>
+                <li><a href="videos.html">Videos</a></li>
+                <li><a href="nosotros.html">Nosotros</a></li>
+                <li><a href="contactanos.html">Contacto</a></li>
+            </ul>
+            <div class="buscador">
+                <input type="text" placeholder="Buscar...">
+                <button>Buscar</button>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Formulario de contacto -->
+    <section class="contacto">
+        <h1>Contáctanos</h1>
+        <form id="form-contacto" onsubmit="agregarDatos(event)">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" required>
+            <label for="correo">Correo Electrónico:</label>
+            <input type="email" id="correo" required>
+            <label for="mensaje">Mensaje:</label>
+            <textarea id="mensaje" required></textarea>
+            <button type="submit">Enviar</button>
+        </form>
+    </section>
+
+    <!-- Tabla para mostrar los datos ingresados -->
+    <section class="tabla-datos">
+        <h2>Datos Ingresados</h2>
+        <table id="tabla-datos">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Correo</th>
+                    <th>Mensaje</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Las filas de datos se agregarán aquí -->
+            </tbody>
+        </table>
+    </section>
+
+    <!-- Pie de página -->
+    <footer>
+        <div class="info">
+            <p>&copy; 2024 Venta de Audífonos</p>
+            <p>Todos los derechos reservados.</p>
+        </div>
+        <div class="redes">
+            <a href="#"><img src="facebook.svg" alt="">Facebook</a>
+            <a href="#"><img src="r1.svg" alt="">Instagram</a>
+            <a href="#"><img src="twitter.svg" alt="">Twitter</a>
+        </div>
+    </footer>
+</body>
+</html>
